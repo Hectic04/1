@@ -1,0 +1,27 @@
+from tensorflow import compat
+tf = compat.v1
+tf.compat.v1.disable_eager_execution()
+print(f"TensorFlow Version: {tf.__version__}")
+
+print("\nAddition code:")
+a = tf.constant(5)
+b = tf.constant(3)
+with tf.Session() as sess:
+    sum = sess.run(a+b)
+print(f"Result : {sum}")
+
+print("\nString code:")
+x = tf.constant('Bhola')
+y = tf.constant(' Study')
+with tf.Session() as sess:
+    result = sess.run(x+y)
+print(f"Result : {result}")
+
+print("\nMetrics code:")
+mat1 = tf.fill((5,5),8)
+zeros = tf.zeros((5,5))
+one = tf.ones((4,4))
+myops = [mat1, zeros, one]
+sess = tf.InteractiveSession()
+for op in myops:
+    print(sess.run(op),end='\n\n')
